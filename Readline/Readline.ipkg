@@ -1,0 +1,10 @@
+package readline
+
+sourcedir = "src"
+
+modules = System.Readline
+
+preclean = "make -C readline_glue clean"
+prebuild = "make -C readline_glue"
+
+postinstall = "make -C readline_glue install"

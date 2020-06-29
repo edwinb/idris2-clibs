@@ -1,0 +1,15 @@
+*~
+*.ttc
+*.ttm
+*.o
+*.d
+*.a
+*.dll
+
+# Editor/IDE Related
+.\#* # Emacs swap file
+*~   # Vim swap file
+# VS Code
+.vscode/*
+
+/build
