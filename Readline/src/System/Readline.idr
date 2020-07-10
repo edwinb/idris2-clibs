@@ -4,21 +4,17 @@ rlib : String -> String
 rlib fn = "C:" ++ fn ++ ",libidrisreadline"
 
 %foreign (rlib "getString")
-export
 getString : Ptr String -> String
 
 %foreign (rlib "mkString")
-export
 mkString : String -> Ptr String
 
 %foreign (rlib "nullString")
-export
 nullString : Ptr String
 
 %foreign (rlib "isNullString")
 prim_isNullString : Ptr String -> Int
 
-export
 isNullString : Ptr String -> Bool
 isNullString str = if prim_isNullString str == 0 then False else True
 

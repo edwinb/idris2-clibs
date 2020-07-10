@@ -1,0 +1,10 @@
+package ncurses
+
+sourcedir = "src"
+
+modules = System.NCurses
+
+preclean = "make -C ncurses_glue clean"
+prebuild = "make -C ncurses_glue"
+
+postinstall = "make -C ncurses_glue install"

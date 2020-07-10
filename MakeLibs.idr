@@ -7,7 +7,7 @@ import System
 import System.Directory
 
 pkgs : List String
-pkgs = ["Readline"]
+pkgs = ["NCurses", "Readline"]
 
 {- A tool for building all the packages.
 

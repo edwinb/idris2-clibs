@@ -1,7 +1,7 @@
 #include <readline/readline.h>
 #include <stdlib.h>
 
-rl_compentry_func_t* my_compentry;
+#include "idris_readline.h"
 
 char* compentry_wrapper(const char* text, int i) {
     char* res = my_compentry(text, i); // res is on the Idris heap and freed on return
