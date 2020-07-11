@@ -1,12 +1,9 @@
 import System.Readline
 
-testComplete : String -> Int -> IO (Maybe String)
-testComplete text 0
-    = pure $ Just "hamster"
-testComplete text 1 = pure $ Just "bar"
-testComplete text st = pure Nothing
+testComplete : Readline io => String -> io (List String)
+testComplete text = pure ["hamster", "foo", "bar"]
 
-loop : IO ()
+loop : Readline io => io ()
 loop = do Just x <- readline "> "
                | Nothing => putStrLn "EOF"
           putStrLn x
@@ -16,5 +13,5 @@ loop = do Just x <- readline "> "
              else putStrLn "Done"
 
 main : IO ()
-main = do setCompletionFn testComplete
+main = do setCompletion testComplete
           loop

@@ -10,8 +10,8 @@ A collection of Idris 2 bindings to C libraries. Installing:
 Only the libraries for which the C dependencies are available will be built.
 Currently, we have bindings for:
 
-* `NCurses`
-* `Readline`
+* `NCurses` (status: just a few basic functions)
+* `Readline` (status: minimally useful)
 
 Please don't expect any of these to be complete, well documented, or even
 particularly usable yet! Contributions are welcome :).
