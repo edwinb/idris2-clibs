@@ -2,7 +2,8 @@
 #define _IDRIS_NCURSES_H
 
 #include <curses.h>
+#include <stdlib.h>
 
-// That's it, for now!
+char* idris_getstr(int max);
 
 #endif

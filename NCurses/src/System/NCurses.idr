@@ -4,7 +4,7 @@ ncurses : String -> String
 ncurses fn = "C:" ++ fn ++ ",libncurses 5"
 
 ncursesGlue : String -> String
-ncursesGlue fn = "C:" ++ fn ++ ",libncursesglue"
+ncursesGlue fn = "C:" ++ fn ++ ",libidrisncurses"
 
 %foreign ncurses "refresh"
 prim_refresh : PrimIO ()
@@ -26,6 +26,13 @@ prim_getch : PrimIO Char
 export
 getch : IO Char
 getch = primIO prim_getch
+
+%foreign ncursesGlue "idris_getstr"
+prim_getstr : Int -> PrimIO String
+
+export
+getnstr : Int -> IO String
+getnstr x = primIO $ prim_getstr x
 
 %foreign ncurses "printw"
 prim_printw : String -> PrimIO ()
