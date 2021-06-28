@@ -22,7 +22,9 @@ else
 endif
 
 LIBTARGET = libidrisncurses.$(SHLIB_SUFFIX)
-INSTALLDIR = `${IDRIS} --libdir`/ncurses/lib
+# TODO: Work out how to get the right install directory without hard coding
+# the version number!
+INSTALLDIR = `${IDRIS} --libdir`/ncurses-0.1/lib
 
 HDRS = idris_ncurses.h
 OBJS = idris_ncurses.o

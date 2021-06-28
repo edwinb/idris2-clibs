@@ -1,0 +1,11 @@
+package sdl
+
+version = 0.1
+
+sourcedir = "src"
+
+modules = SDL
+
+postbuild = "make -C sdlc"
+postinstall = "make -C sdlc install"
+

@@ -1,13 +1,14 @@
 module Main
 
 import Data.List
+import Data.List1
 import Data.Strings
 
 import System
 import System.Directory
 
 pkgs : List String
-pkgs = ["NCurses", "Readline"]
+pkgs = ["NCurses", "Readline", "SDL"]
 
 {- A tool for building all the packages.
 
@@ -37,7 +38,7 @@ missingDeps pkg
     = do depfile <- readFile "DEPS"
          let deps : List String
                   = case depfile of
-                         Right ds => filter notEmpty (lines ds)
+                         Right ds => filter notEmpty (toList (lines ds))
                          Left _ => []
          pure $ mapMaybe id !(traverse missing deps)
   where

@@ -21,21 +21,22 @@ else
         SHLIB_SUFFIX    :=so
 endif
 
-LIBTARGET = libidrisreadline.$(SHLIB_SUFFIX)
+LIBTARGET = libidrissdl.$(SHLIB_SUFFIX)
 # TODO: Work out how to get the right install directory without hard coding
 # the version number!
-INSTALLDIR = `${IDRIS} --libdir`/readline-0.1/lib
+INSTALLDIR = `${IDRIS} --libdir`/sdl-0.1/lib
 
-HDRS = idris_readline.h
-OBJS = idris_readline.o
+HDRS = idris_sdl.h
+OBJS = idris_sdl.o
 
-READLINE_LIBS := -lreadline
-READLINE_FLAGS := -fPIC
+SDL_LIBS := `sdl2-config --libs`
+SDL_FLAGS := `sdl2-config --cflags`
 
-CFLAGS = $(READLINE_FLAGS)
+CFLAGS = $(SDL_FLAGS)
 
 $(LIBTARGET): $(OBJS)
-	$(CC) -o $(LIBTARGET) -shared $(OBJS) $(READLINE_LIBS) $(READLINE_FLAGS)
+	echo $(SDL_LIBS)
+	$(CC) -o $(LIBTARGET) -shared $(OBJS) $(SDL_LIBS) $(SDL_FLAGS)
 	
 clean:
 	rm -f $(OBJS) $(LIBTARGET)

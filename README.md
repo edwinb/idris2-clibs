@@ -12,6 +12,7 @@ Currently, we have bindings for:
 
 * `NCurses` (status: just a few basic functions)
 * `Readline` (status: minimally useful)
+* `SDL` (status: just a few basic functions)
 
 Please don't expect any of these to be complete, well documented, or even
 particularly usable yet! Contributions are welcome :).
